@@ -26,21 +26,21 @@ namespace Business.Concrete
         [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
         {
-           
+            
             _productDal.Add(product);
 
-            return new SuccessResult();
+            return new SuccessResult(Messages.ProductAdded);
         }
 
         public IResult Delete(Product product)
         {
             _productDal.Delete(product);
-            return new SuccessResult("Ürün Silindi");
+            return new SuccessResult(Messages.ProductDeleted);
         }
 
         public IDataResult<List<Product>> GetAll()
         {
-            return new DataResult<List<Product>>(_productDal.GetAll(),true,Messages.ProductAdded);
+            return new DataResult<List<Product>>(_productDal.GetAll(),true,Messages.ProductsListed);
         }
 
         public IDataResult<List<Product>> GetAllByCategory(int categoryId)
@@ -66,7 +66,9 @@ namespace Business.Concrete
         public IResult Update(Product product)
         {
             _productDal.Update(product);
-            return new SuccessResult("Ürün güncellendi");
+            return new SuccessResult(Messages.ProductUpdated);
         }
+
+         
     }
 }

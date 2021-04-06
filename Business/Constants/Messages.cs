@@ -11,7 +11,6 @@ namespace Business.Constants
         public static string ProductDeleted = "Ürün silindi.";
         public static string ProductNameInvalid = "Ürün eklendi.";
 
-
-
+        public static string ProductsListed { get; internal set; }
     }
 }
